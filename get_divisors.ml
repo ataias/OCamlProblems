@@ -48,11 +48,11 @@ let parse line =
   List.map number_str ~f:Int.of_string
   
 let n_tests = read_int ();;
-let () = for i = 1 to n_tests do
+let () = for _ = 1 to n_tests do
     let line = read_line () in
     let l = parse line in
     let a, b = match l with
-      | x::y::tl -> x, y
+      | x::y::_ -> x, y
       | _ -> 0, 0 in
     print_int (get_number_common_divisors a b);
     print_newline ();
